@@ -4,6 +4,10 @@
  */
 
 'use strict';
-module.exports = function(content, file){
-    return content;
+
+var marked = require('marked');
+
+module.exports = function(content, file, conf){
+    marked.setOptions(conf);
+    return marked(content);
 };
