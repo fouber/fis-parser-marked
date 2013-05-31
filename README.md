@@ -17,7 +17,7 @@ fis.config.merge({
     },
     modules : {
         parser : {
-            md : 'markdown'
+            md : 'marked'
         }
     }
 });
