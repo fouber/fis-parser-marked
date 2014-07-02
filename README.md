@@ -8,17 +8,7 @@ A parser plugin for fis to compile markdown file.
     $ vi path/to/project/fis-conf.js
 
 ```javascript
-//file : path/to/project/fis-conf.js
-fis.config.merge({
-    roadmap : {
-        ext : {
-            md : 'html'
-        }
-    },
-    modules : {
-        parser : {
-            md : 'marked'
-        }
-    }
-});
-```
+//use the `fis-parser-marked` plugin to parse *.md file
+fis.config.set('modules.parser.md', 'marked');
+//*.md will be released as *.html
+fis.config.set('roadmap.ext.md', 'html');
