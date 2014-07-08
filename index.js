@@ -16,6 +16,7 @@ var hljs = require('highlight.js');
 module.exports.defaultOptions = {
     gfm: true,
     breaks: true,
+    langPrefix: 'hljs ',
     highlight : function(code, lang){
         if(lang){
             return hljs.highlight(lang, code).value;
