@@ -7,6 +7,19 @@
 
 var marked = require('marked');
 
+marked.renderer.heading = function(text, level){
+    return '<h'
+        + level
+        + ' id="'
+        + this.options.headerPrefix
+        + encodeURIComponent(raw.toLowerCase())
+        + '">'
+        + text
+        + '</h'
+        + level
+        + '>\n';
+};
+
 module.exports = function(content, file, conf){
     marked.setOptions(conf);
     return marked(content);
