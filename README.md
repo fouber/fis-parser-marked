@@ -1,10 +1,10 @@
-# fis-parser-markdown
+# fis-parser-marked
 
 A parser plugin for fis to compile markdown file.
 
 ## usage
 
-    $ npm install -g fis-parser-markdown
+    $ npm install -g fis-parser-marked
     $ vi path/to/project/fis-conf.js
 
 ```javascript
