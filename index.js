@@ -6,6 +6,7 @@
 'use strict';
 
 var marked = require('marked');
+var hljs = require('highlight.js');
 
 marked.defaults.renderer.heading = function(text, level, raw){
     if(typeof this.options.heading === 'function'){
@@ -25,17 +26,18 @@ marked.defaults.renderer.heading = function(text, level, raw){
 };
 
 module.exports = function(content, file, conf){
+    hljs.configure(conf.hljs || {
+        tabReplace: '    '
+    });
     marked.setOptions(conf);
     return marked(content);
 };
-
-var hljs = require('highlight.js');
 module.exports.defaultOptions = {
     gfm: true,
     breaks: true,
     langPrefix: 'hljs ',
     highlight : function(code, lang){
-        if(lang){
+        if(lang && hljs.getLanguage(lang)){
             return hljs.highlight(lang, code).value;
         } else {
             return hljs.highlightAuto(code).value;
